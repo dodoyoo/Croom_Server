@@ -3,6 +3,11 @@ package com.croom;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -41,4 +46,10 @@ public class Project {
     @Column(nullable = false)
     public Integer stack_id;
 
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDate created_at;
+
+    @UpdateTimestamp
+    private LocalDateTime updated_at;
     }
